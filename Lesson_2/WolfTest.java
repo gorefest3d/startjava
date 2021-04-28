@@ -15,7 +15,7 @@ public class WolfTest {
         wolfOne.age = 6;
         System.out.println(wolfOne.age);
 
-        wolfOne.color = "Бурый";
+        wolfOne.color = "Р‘СѓСЂС‹Р№";
         System.out.println(wolfOne.color);
 
         wolfOne.walk();

@@ -7,22 +7,22 @@ public class Wolf {
     String color;
 
     void walk() {
-        System.out.println("Идет");
+        System.out.println("РРґРµС‚");
     }
 
     void sit() {
-        System.out.println("Сидит");
+        System.out.println("РЎРёРґРёС‚");
     }
 
     void run() {
-        System.out.println("Бежит");
+        System.out.println("Р‘РµР¶РёС‚");
     }
 
     void howl() {
-        System.out.println("Воет");
+        System.out.println("Р’РѕРµС‚");
     }
 
     void hunt() {
-        System.out.println("Охотится");
+        System.out.println("РћС…РѕС‚РёС‚СЃСЏ");
     }
 }
