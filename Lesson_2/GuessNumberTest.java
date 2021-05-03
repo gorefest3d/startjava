@@ -46,7 +46,7 @@ public class GuessNumberTest {
                     } else {
                     isRightChoice = false;
                     }
-                }while (!isRightChoice);
+                } while (!isRightChoice);
             }
         } while(isChangePlayer);
     }
