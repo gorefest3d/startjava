@@ -48,6 +48,6 @@ public class GuessNumberTest {
                     }
                 } while (!isRightChoice);
             }
-        } while(isChangePlayer);
+        } while (isChangePlayer);
     }
 }
