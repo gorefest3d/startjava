@@ -13,8 +13,8 @@ public class JaegerTest {
         itemOne.fight();
         itemTwo.fight();
 
-        itemOne.showInfo();
+        System.out.println(itemOne);
         System.out.println("///////////////////");
-        itemTwo.showInfo();
+        System.out.println(itemTwo);
     }
 }

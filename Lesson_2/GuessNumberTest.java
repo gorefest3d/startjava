@@ -15,39 +15,25 @@ public class GuessNumberTest {
         Player playerTwo = new Player(scan.nextLine());
 
         GuessNumber guessNumber = new GuessNumber();
-        boolean isChangePlayer = false;
 
         do {
-            System.out.print(playerOne.getPlayerName() + ", введите число: ");
-            playerOne.setNumber(scan.nextInt());
-            guessNumber.playGame(playerOne, targetNumber);
-            isChangePlayer = guessNumber.isChanged;
+            guessNumber.playGame(playerOne, playerTwo, targetNumber);
+            boolean isRightChoice = true;
+            
+            do {
+                System.out.print("Хотите поиграть еще? [yes/no]: ");
+                String nextToDo = scan.nextLine();
 
-            if (isChangePlayer) {
-                System.out.print(playerTwo.getPlayerName() + ", введите число: ");
-                playerTwo.setNumber(scan.nextInt());
-                guessNumber.playGame(playerTwo, targetNumber);
-                isChangePlayer = guessNumber.isChanged;
-            }
-
-            if (!isChangePlayer) {
-                boolean isRightChoice = true;
-                scan.nextLine();
-                do {
-                    System.out.print("Хотите поиграть еще? [yes/no]: ");
-                    String nextToDo = scan.nextLine();
-
-                    if (nextToDo.equals("yes")) {
-                    isChangePlayer = true;
+                if (nextToDo.equals("yes")) {
+                    guessNumber.isChanged = false;
                     isRightChoice = true;
-                    } else if (nextToDo.equals("no")) {
-                    isChangePlayer = false;
+                } else if (nextToDo.equals("no")) {
+                    guessNumber.isChanged = true;
                     isRightChoice = true;
-                    } else {
+                } else {
                     isRightChoice = false;
-                    }
-                } while (!isRightChoice);
-            }
-        } while (isChangePlayer);
+                }
+            } while (!isRightChoice);
+        } while (!guessNumber.isChanged);
     }
 }

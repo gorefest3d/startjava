@@ -16,7 +16,7 @@ public class Calculator {
         this.operation = operation;
     }
 
-    public void calculate(){
+    public void calculate() {
         switch(operation) {
             case '+' :
                 System.out.println(numberOne + numberTwo);

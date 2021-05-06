@@ -45,31 +45,33 @@ public class Jaeger {
     }
 
     public void move() {
-        System.out.println(this.modelName + " moving");
+        System.out.println(modelName + " moving");
     }
 
     public void fly() {
-        System.out.println(this.modelName + " flying");
+        System.out.println(modelName + " flying");
     }
 
     public void fight() {
-        System.out.println(this.modelName + " fighting");
+        System.out.println(modelName + " fighting");
     }
 
     public boolean isKjuKiller() {
         return true;
     }
 
-    public void showInfo() {
-        System.out.println("Model name: " + this.modelName);
-        System.out.println("Mark name: " + this.mark);
-        System.out.println("Origin: " + this.origin);
-        System.out.println("Height: " + this.height);
-        System.out.println("Weight: " + this.weight);
-        System.out.println("Strength: " + this.strength);
-        System.out.println("Armor: " + this.armor);
-        System.out.println("Speed: " + this.speed);
-        System.out.println("Body Language: " + this.bodyLanguage);
-        System.out.println("Pilot Count: " + this.pilotCount);
+    public String toString() {
+        return "Jaeger{" +
+                "Model Name='" + modelName + '\'' +
+                ", Mark='" + mark + '\'' +
+                ", Origin='" + origin + '\'' +
+                ", Height=" + height +
+                ", Weight=" + weight +
+                ", Strength=" + strength +
+                ", Armor=" + armor +
+                ", Speed=" + speed +
+                ", Body Language='" + bodyLanguage + '\'' +
+                ", Pilot Count=" + pilotCount +
+                '}';
     }
 }
