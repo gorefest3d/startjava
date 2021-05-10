@@ -2,33 +2,42 @@ import java.util.Scanner;
 
 public class GuessNumber {
     
-    public boolean isChanged = true;
+    public boolean compareNumbers;
+    public Player first;
+    public Player second;
+    public int targetNumber;
     Scanner scan = new Scanner(System.in);
 
-    public void playGame(Player first, Player second, int targetNumber) {
+    public GuessNumber(Player first, Player second, int targetNumber) {
+        this.first = first;
+        this.second = second;
+        this.targetNumber = targetNumber;
+    }
+
+    public void playGame() {
         do {
             System.out.print(first.getName() + ", введите число: ");
             first.setNumber(scan.nextInt());
-            checkResult(first, targetNumber);
+            compareNumbers(first, targetNumber);
 
-            if (isChanged) {
+            if (!compareNumbers) {
                 System.out.print(second.getName() + ", введите число: ");
                 second.setNumber(scan.nextInt());
-                checkResult(second, targetNumber);
+                compareNumbers(second, targetNumber);
             }
-        } while (isChanged);
+        } while (!compareNumbers);
     }
 
-    public void checkResult(Player current, int targetNumber) {
-        if (current.getNumber() == targetNumber) {
-            System.out.println(current.getName() + " , поздравляю, число угадано!");
-            isChanged = false;
-        } else if (current.getNumber() < targetNumber) {
+    public void compareNumbers(Player player, int targetNumber) {
+        if (player.getNumber() == targetNumber) {
+            System.out.println(player.getName() + " , поздравляю, число угадано!");
+            compareNumbers = true;
+        } else if (player.getNumber() < targetNumber) {
             System.out.println("Данное число меньше того, что загадал компьютер");
-            isChanged = true;
-        } else if (current.getNumber() > targetNumber) {
+            compareNumbers = false;
+        } else if (player.getNumber() > targetNumber) {
             System.out.println("Данное число больше того, что загадал компьютер");
-            isChanged = true;
+            compareNumbers = false;
         }
     }
 }

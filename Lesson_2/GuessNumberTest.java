@@ -14,26 +14,23 @@ public class GuessNumberTest {
         System.out.print("Введите имя второго игрока: ");
         Player playerTwo = new Player(scan.nextLine());
 
-        GuessNumber guessNumber = new GuessNumber();
+        GuessNumber guessNumber = new GuessNumber(playerOne, playerTwo, targetNumber);
+        boolean isContinue = false;
 
         do {
-            guessNumber.playGame(playerOne, playerTwo, targetNumber);
-            boolean isRightChoice = true;
+            guessNumber.playGame();
+            String nextToDo;
             
             do {
                 System.out.print("Хотите поиграть еще? [yes/no]: ");
-                String nextToDo = scan.nextLine();
+                nextToDo = scan.nextLine();
 
                 if (nextToDo.equals("yes")) {
-                    guessNumber.isChanged = false;
-                    isRightChoice = true;
+                    isContinue = true;
                 } else if (nextToDo.equals("no")) {
-                    guessNumber.isChanged = true;
-                    isRightChoice = true;
-                } else {
-                    isRightChoice = false;
+                    isContinue = false;
                 }
-            } while (!isRightChoice);
-        } while (!guessNumber.isChanged);
+            } while (!nextToDo.equals("yes") && !nextToDo.equals("no"));
+        } while (isContinue);
     }
 }

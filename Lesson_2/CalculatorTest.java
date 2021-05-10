@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class CalculatorTest {
     public static void main(String[] args) {
         
-        boolean isOneMoreTime = true;
+        boolean isContinue = false;
         Scanner scan = new Scanner(System.in);
         Calculator calculator = new Calculator();
     
@@ -22,22 +22,18 @@ public class CalculatorTest {
 
             calculator.calculate();
             scan.nextLine();
-            boolean isRightChoice = true;
+            String nextToDo;
 
             do{
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
-                String nextToDo = scan.nextLine();
+                nextToDo = scan.nextLine();
 
                 if (nextToDo.equals("yes")) {
-                    isOneMoreTime = true;
-                    isRightChoice = true;
+                    isContinue = true;
                 } else if (nextToDo.equals("no")) {
-                    isOneMoreTime = false;
-                    isRightChoice = true;
-                } else {
-                    isRightChoice = false;
+                    isContinue = false;
                 }
-            } while (!isRightChoice);
-        } while (isOneMoreTime);
+            } while (!nextToDo.equals("yes") && !nextToDo.equals("no"));
+        } while (isContinue);
     }
 }

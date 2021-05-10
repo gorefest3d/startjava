@@ -33,8 +33,8 @@ public class Calculator {
             case '^' :
                 int result = 1;
                 for (int i = 1; i <= numberTwo; i++) {
-                        result *= numberOne;
-                    }
+                    result *= numberOne;
+                }
                 System.out.println(result);
                 break;
             case '%' :
