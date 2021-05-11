@@ -1,11 +1,8 @@
 import java.util.Scanner;
-import java.util.Random;
 
 public class GuessNumberTest {
     public static void main(String[] args) {
         
-        Random randomNumber = new Random();
-        int targetNumber = randomNumber.nextInt(101);
         Scanner scan = new Scanner(System.in);
         
         System.out.print("Введите имя первого игрока: ");
@@ -14,23 +11,15 @@ public class GuessNumberTest {
         System.out.print("Введите имя второго игрока: ");
         Player playerTwo = new Player(scan.nextLine());
 
-        GuessNumber guessNumber = new GuessNumber(playerOne, playerTwo, targetNumber);
-        boolean isContinue = false;
+        GuessNumber guessNumber = new GuessNumber(playerOne, playerTwo);
+        String nextToDo;
 
         do {
             guessNumber.playGame();
-            String nextToDo;
-            
             do {
                 System.out.print("Хотите поиграть еще? [yes/no]: ");
                 nextToDo = scan.nextLine();
-
-                if (nextToDo.equals("yes")) {
-                    isContinue = true;
-                } else if (nextToDo.equals("no")) {
-                    isContinue = false;
-                }
             } while (!nextToDo.equals("yes") && !nextToDo.equals("no"));
-        } while (isContinue);
+        } while (nextToDo.equals("yes") && !nextToDo.equals("no"));
     }
 }
