@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class CalculatorTest {
     public static void main(String[] args) {
-        
-        String nextToDo;
+        String playerAnswer;
         Scanner scan = new Scanner(System.in);
         Calculator calculator = new Calculator();
     
@@ -25,8 +24,8 @@ public class CalculatorTest {
 
             do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
-                nextToDo = scan.nextLine();
-            } while (!nextToDo.equals("yes") && !nextToDo.equals("no"));
-        } while (nextToDo.equals("yes") && !nextToDo.equals("no"));
+                playerAnswer = scan.nextLine();
+            } while (!playerAnswer.equals("yes") && !playerAnswer.equals("no"));
+        } while (playerAnswer.equals("yes") && !playerAnswer.equals("no"));
     }
 }

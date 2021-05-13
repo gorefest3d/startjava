@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class GuessNumberTest {
     public static void main(String[] args) {
-        
         Scanner scan = new Scanner(System.in);
         
         System.out.print("Введите имя первого игрока: ");
@@ -12,14 +11,14 @@ public class GuessNumberTest {
         Player playerTwo = new Player(scan.nextLine());
 
         GuessNumber guessNumber = new GuessNumber(playerOne, playerTwo);
-        String nextToDo;
+        String playerAnswer;
 
         do {
             guessNumber.playGame();
             do {
                 System.out.print("Хотите поиграть еще? [yes/no]: ");
-                nextToDo = scan.nextLine();
-            } while (!nextToDo.equals("yes") && !nextToDo.equals("no"));
-        } while (nextToDo.equals("yes") && !nextToDo.equals("no"));
+                playerAnswer = scan.nextLine();
+            } while (!playerAnswer.equals("yes") && !playerAnswer.equals("no"));
+        } while (playerAnswer.equals("yes") && !playerAnswer.equals("no"));
     }
 }
