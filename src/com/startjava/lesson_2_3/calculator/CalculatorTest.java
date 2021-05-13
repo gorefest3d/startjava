@@ -20,6 +20,7 @@ public class CalculatorTest {
             System.out.print("Введите второе число: ");
             int numberTwo = scan.nextInt();
             calculator.setNumberTwo(numberTwo);
+
             calculator.calculate();
             scan.nextLine();
 
