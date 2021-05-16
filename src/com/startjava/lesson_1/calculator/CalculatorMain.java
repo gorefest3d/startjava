@@ -1,3 +1,5 @@
+package com.startjava.lesson_1.calculator;
+
 public class CalculatorMain {
     public static void main(String[] args) {
         int numberOne = 10;
