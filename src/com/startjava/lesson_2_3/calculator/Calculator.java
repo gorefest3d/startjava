@@ -1,46 +1,31 @@
 package com.startjava.lesson_2_3.calculator;
 
 public class Calculator {
+    public void calculate(String userData) {
+        String[] words = userData.split(" ");
 
-    private int numberOne;
-    private int numberTwo;
-    private char operation;
-
-    public void setNumberOne(int numberOne){
-        this.numberOne = numberOne;
-    }
-
-    public void setNumberTwo(int numberTwo) {
-        this.numberTwo = numberTwo;
-    }
-
-    public void setOperation(char operation) {
-        this.operation = operation;
-    }
-
-    public void calculate() {
-        switch(operation) {
-            case '+' :
-                System.out.println(numberOne + numberTwo);
+        switch(words[1]) {
+            case "+" :
+                System.out.println(Integer.parseInt(words[0]) + Integer.parseInt(words[2]));
                 break;
-            case '-' :
-                System.out.println(numberOne - numberTwo);
+            case "-" :
+                System.out.println(Integer.parseInt(words[0]) - Integer.parseInt(words[2]));
                 break;
-            case '*' :
-                System.out.println(numberOne * numberTwo);
+            case "*" :
+                System.out.println(Integer.parseInt(words[0]) * Integer.parseInt(words[2]));
                 break;
-            case '/' :
-                System.out.println((numberOne * 1.0) / numberTwo);
+            case "/" :
+                System.out.println((Integer.parseInt(words[0]) * 1.0) / Integer.parseInt(words[2]));
                 break;
-            case '^' :
+            case "^" :
                 int result = 1;
-                for (int i = 1; i <= numberTwo; i++) {
-                    result *= numberOne;
+                for (int i = 1; i <= Integer.parseInt(words[2]); i++) {
+                    result *= Integer.parseInt(words[0]);
                 }
                 System.out.println(result);
                 break;
-            case '%' :
-                System.out.println(numberOne % numberTwo);
+            case "%" :
+                System.out.println(Integer.parseInt(words[0]) % Integer.parseInt(words[2]));
                 break;
         }
     }

@@ -9,20 +9,9 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
     
         do {
-            System.out.print("Введите первое число: ");
-            int numberOne = scan.nextInt();
-            calculator.setNumberOne(numberOne);
-
-            System.out.print("Введите знак математической операции: ");
-            char operation = scan.next().charAt(0);
-            calculator.setOperation(operation);
-
-            System.out.print("Введите второе число: ");
-            int numberTwo = scan.nextInt();
-            calculator.setNumberTwo(numberTwo);
-
-            calculator.calculate();
-            scan.nextLine();
+            System.out.print("Введите математическое выражение: ");
+            String userData = scan.nextLine();
+            calculator.calculate(userData);
 
             do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
