@@ -5,7 +5,9 @@ import java.util.Scanner;
 public class GuessNumberTest {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        
+
+        System.out.println("Внимание! У каждого игрока только 10 попыток!");
+
         System.out.print("Введите имя первого игрока: ");
         Player playerOne = new Player(scan.nextLine());
         
@@ -17,10 +19,11 @@ public class GuessNumberTest {
 
         do {
             guessNumber.playGame();
+
             do {
                 System.out.print("Хотите поиграть еще? [yes/no]: ");
                 playerAnswer = scan.nextLine();
             } while (!playerAnswer.equals("yes") && !playerAnswer.equals("no"));
-        } while (playerAnswer.equals("yes") && !playerAnswer.equals("no"));
+        } while (playerAnswer.equals("yes"));
     }
 }

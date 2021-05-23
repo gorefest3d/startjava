@@ -11,7 +11,7 @@ public class CalculatorTest {
         do {
             System.out.print("Введите математическое выражение: ");
             String userData = scan.nextLine();
-            calculator.calculate(userData);
+            System.out.println(calculator.calculate(userData));
 
             do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
