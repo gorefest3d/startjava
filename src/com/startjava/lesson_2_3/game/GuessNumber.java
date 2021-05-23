@@ -17,8 +17,7 @@ public class GuessNumber {
     public void playGame() {
         first.clearNumbers();
         second.clearNumbers();
-        //int targetNumber = randomNumber.nextInt(101);
-        int targetNumber = 20;
+        int targetNumber = randomNumber.nextInt(101);
         int tryCount = 0;
 
         while (tryCount < 10) {
