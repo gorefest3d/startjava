@@ -1,11 +1,10 @@
-package com.startjava.lesson_2_3.game;
+package com.startjava.lesson_2_3_4.game;
 
 import java.util.Arrays;
 
 public class Player {
 
     private String name;
-    private int number;
     private int count;
     private int[] numbers = new int[10];
 
@@ -17,36 +16,25 @@ public class Player {
         return name;
     }
 
-    public void setNumber(int number, int count) {
-        this.number = number;
-        this.count = count + 1;
+    public void setNumber(int number) {
         numbers[count] = number;
+        count++;
     }
 
     public int getNumber() {
-        return number;
+        return numbers[count - 1];
     }
 
     public int getCount() {
         return count;
     }
 
-    public String getNumbers() {
-        String numbersInfo = "";
-        int[] numbersCopy = Arrays.copyOf(numbers, count);
-        for (int number : numbersCopy) {
-            numbersInfo += number + " ";
-        }
-        return numbersInfo;
+    public int[] getNumbers() {
+        return Arrays.copyOf(numbers, count);
     }
 
     public void clearNumbers() {
+        count = 0;
         Arrays.fill(numbers, 0, count, 0);
     }
 }
-
-
-
-
-
-
