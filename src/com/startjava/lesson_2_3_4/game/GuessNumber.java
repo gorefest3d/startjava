@@ -1,6 +1,5 @@
 package com.startjava.lesson_2_3_4.game;
 
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -18,8 +17,7 @@ public class GuessNumber {
         first.clearNumbers();
         second.clearNumbers();
         Random randomNumber = new Random();
-        //int targetNumber = randomNumber.nextInt(101);
-        int targetNumber = 20;
+        int targetNumber = randomNumber.nextInt(101);
         int tryCount = 0;
 
         while (tryCount < 10) {
@@ -60,9 +58,7 @@ public class GuessNumber {
     private void numbersInfo(Player player) {
         String numbers = "";
         for (int number : player.getNumbers()) {
-            if (number != 0) {
-                numbers += number + " ";
-            }
+            if (number != 0) numbers += number + " ";
         }
         System.out.println(numbers);
     }
