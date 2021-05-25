@@ -18,7 +18,8 @@ public class GuessNumber {
         first.clearNumbers();
         second.clearNumbers();
         Random randomNumber = new Random();
-        int targetNumber = randomNumber.nextInt(101);
+        //int targetNumber = randomNumber.nextInt(101);
+        int targetNumber = 20;
         int tryCount = 0;
 
         while (tryCount < 10) {
@@ -32,8 +33,8 @@ public class GuessNumber {
             }
             tryCount++;
         }
-        System.out.println(Arrays.toString(first.getNumbers()));
-        System.out.println(Arrays.toString(second.getNumbers()));
+        numbersInfo(first);
+        numbersInfo(second);
     }
 
     private void inputNumber(Player player) {
@@ -47,12 +48,22 @@ public class GuessNumber {
             return true;
         }
 
-        String answer = player.getNumber() < targetNumber ? "Данное число меньше того, что загадал компьютер" : "Данное число больше того, что загадал компьютер";
-        System.out.println(answer);
+        String answer = player.getNumber() < targetNumber ? "меньше" : "больше";
+        System.out.println("Данное число " + answer + " того, что загадал компьютер");
 
         if (player.getCount() == 10) {
             System.out.println("У игрока " + player.getName() + " закончились попытки");
         }
         return false;
+    }
+
+    private void numbersInfo(Player player) {
+        String numbers = "";
+        for (int number : player.getNumbers()) {
+            if (number != 0) {
+                numbers += number + " ";
+            }
+        }
+        System.out.println(numbers);
     }
 }

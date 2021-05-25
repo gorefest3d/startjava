@@ -16,6 +16,10 @@ public class Player {
         return name;
     }
 
+    public int getCount() {
+        return count;
+    }
+
     public void setNumber(int number) {
         numbers[count] = number;
         count++;
@@ -25,16 +29,16 @@ public class Player {
         return numbers[count - 1];
     }
 
-    public int getCount() {
-        return count;
-    }
-
     public int[] getNumbers() {
         return Arrays.copyOf(numbers, count);
     }
 
     public void clearNumbers() {
         count = 0;
-        Arrays.fill(numbers, 0, count, 0);
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == 0) {
+                Arrays.fill(numbers, 0, i, 0);
+            }
+        }
     }
 }
