@@ -17,7 +17,8 @@ public class GuessNumber {
         first.clearNumbers();
         second.clearNumbers();
         Random randomNumber = new Random();
-        int targetNumber = randomNumber.nextInt(101);
+        //int targetNumber = randomNumber.nextInt(101);
+        int targetNumber = 20;
         int tryCount = 0;
 
         while (tryCount < 10) {
@@ -31,8 +32,8 @@ public class GuessNumber {
             }
             tryCount++;
         }
-        numbersInfo(first);
-        numbersInfo(second);
+        showPlayerNumbers(first);
+        showPlayerNumbers(second);
     }
 
     private void inputNumber(Player player) {
@@ -55,11 +56,10 @@ public class GuessNumber {
         return false;
     }
 
-    private void numbersInfo(Player player) {
-        String numbers = "";
+    private void showPlayerNumbers(Player player) {
         for (int number : player.getNumbers()) {
-            if (number != 0) numbers += number + " ";
+            System.out.print(number + " ");
         }
-        System.out.println(numbers);
+        System.out.println();
     }
 }

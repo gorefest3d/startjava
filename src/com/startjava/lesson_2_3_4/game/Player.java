@@ -34,11 +34,7 @@ public class Player {
     }
 
     public void clearNumbers() {
+        Arrays.fill(numbers, 0, count, 0);
         count = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] == 0) {
-                Arrays.fill(numbers, 0, i, 0);
-            }
-        }
     }
 }
