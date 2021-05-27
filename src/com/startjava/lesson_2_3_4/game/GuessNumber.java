@@ -20,10 +20,8 @@ public class GuessNumber {
         int targetNumber = randomNumber.nextInt(101);
         int tryCount = 0;
 
-        while (tryCount < 10) {
-            if (makeMove(first, targetNumber) || makeMove(second, targetNumber)) {
-               break;
-            }
+        while (!makeMove(first, targetNumber) && !makeMove(second, targetNumber)) {
+            System.out.println("Попытка " + (tryCount + 2));
             tryCount++;
         }
         showPlayerNumbers(first);
@@ -34,8 +32,10 @@ public class GuessNumber {
         inputNumber(player);
         if (player.getCount() == 10) {
             System.out.println("У игрока " + player.getName() + " закончились попытки");
+            return true;
         }
-        return compareNumbers(player, targetNumber);
+            return compareNumbers(player, targetNumber);
+
     }
 
     private void inputNumber(Player player) {
@@ -48,13 +48,8 @@ public class GuessNumber {
             System.out.println("Игрок " + player.getName() + " угадал число " + targetNumber + " с " + player.getCount() + " попытки");
             return true;
         }
-
         String answer = player.getNumber() < targetNumber ? "меньше" : "больше";
         System.out.println("Данное число " + answer + " того, что загадал компьютер");
-
-        if (player.getCount() == 10) {
-            System.out.println("У игрока " + player.getName() + " закончились попытки");
-        }
         return false;
     }
 

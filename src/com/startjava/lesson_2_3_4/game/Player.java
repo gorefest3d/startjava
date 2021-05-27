@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Player {
 
     private String name;
-    private int count;
+    private int count = 0;
     private int[] numbers = new int[10];
 
     public Player(String name) {
