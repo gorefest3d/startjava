@@ -17,23 +17,25 @@ public class GuessNumber {
         first.clearNumbers();
         second.clearNumbers();
         Random randomNumber = new Random();
-        //int targetNumber = randomNumber.nextInt(101);
-        int targetNumber = 20;
+        int targetNumber = randomNumber.nextInt(101);
         int tryCount = 0;
 
         while (tryCount < 10) {
-            inputNumber(first);
-            if (compareNumbers(first, targetNumber)) {
-                break;
-            }
-            inputNumber(second);
-            if (compareNumbers(second, targetNumber)) {
-                break;
+            if (makeMove(first, targetNumber) || makeMove(second, targetNumber)) {
+               break;
             }
             tryCount++;
         }
         showPlayerNumbers(first);
         showPlayerNumbers(second);
+    }
+
+    private boolean makeMove(Player player, int targetNumber) {
+        inputNumber(player);
+        if (player.getCount() == 10) {
+            System.out.println("У игрока " + player.getName() + " закончились попытки");
+        }
+        return compareNumbers(player, targetNumber);
     }
 
     private void inputNumber(Player player) {
