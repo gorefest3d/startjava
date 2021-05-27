@@ -19,6 +19,7 @@ public class GuessNumber {
         Random randomNumber = new Random();
         int targetNumber = randomNumber.nextInt(101);
         int tryCount = 0;
+
         while (tryCount < 10) {
             if (makeMove(first, targetNumber) || makeMove(second, targetNumber)) {
                break;
